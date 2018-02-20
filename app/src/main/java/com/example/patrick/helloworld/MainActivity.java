@@ -8,9 +8,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int clickcounter = 0;
-    TextView tv_clicks, toetje;
-    Button b_clickbutton;
+    int clickCounter = 0;
+    int clickValue= 1;
+    TextView tv_clicks;
+    Button b_clickbutton, b_buybutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,17 @@ public class MainActivity extends AppCompatActivity {
         b_clickbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickcounter++;
-                tv_clicks.setText(clickcounter);
+                clickCounter = clickCounter + clickValue;
+                tv_clicks.setText("Clicks: " + clickCounter);
+            }
+        });
+
+        b_buybutton = (Button) findViewById(R.id.buybutton);
+        b_buybutton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                clickValue = clickValue + 2;
+                b_buybutton.setEnabled(false);
             }
         });
     }

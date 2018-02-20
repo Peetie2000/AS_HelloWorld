@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
-    <string name="clickbutton">Klik op mij!</string>
-    <string name="toetje">Toetje:</string>
-    <integer name="opteller">0</integer>
+    <string name="app_name">Drenthe CClicker</string>
+    <string name="clickbutton">Click me!</string>
+    <string name="buybutton">Buy now!</string>
+    <string name="opteller">Clicks: 0</string>
 </resources>
