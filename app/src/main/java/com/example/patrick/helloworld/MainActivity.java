@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     boolean item1 = false;
     TextView tv_clicks;
     Button b_clickButton, b_buyButton;
-    ProgressBar pb_progressCircle;
+    ProgressBar pb_progressBar;
 
 
 
@@ -26,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
         tv_clicks = (TextView) findViewById(R.id.clicks);
         b_clickButton = (Button) findViewById(R.id.clickButton);
         b_buyButton = (Button) findViewById(R.id.buyButton);
-        pb_progressCircle =(ProgressBar) findViewById(R.id.progressCircle);
-        pb_progressCircle.setMax(100);
+        pb_progressBar =(ProgressBar) findViewById(R.id.progressBar);
+        pb_progressBar.setMax(100);
+
         b_buyButton.setEnabled(false);
 
         b_clickButton.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 clickCounter = clickCounter + clickValue;
                 tv_clicks.setText("Clicks: " + clickCounter);
-                pb_progressCircle.setProgress(clickCounter);
+                pb_progressBar.setProgress(clickCounter);
                 if(clickCounter >= 10){
                     if(!item1) {
                         b_buyButton.setEnabled(true);
