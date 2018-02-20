@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 clickCounter = clickCounter + clickValue;
                 tv_clicks.setText("Clicks: " + clickCounter);
                 pb_progressBar.setProgress(clickCounter);
+                if(clickCounter >= 100){
+                    pb_progressBar.setProgress(0);
+                    //andere functie bij volle bar
+                }
                 if(clickCounter >= 10){
                     if(!item1) {
                         b_buyButton.setEnabled(true);
