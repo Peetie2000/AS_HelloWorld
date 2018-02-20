@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+//KOEEEEEEEEEEEEEEEEEEEEEEEEEEKJEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
         b_buyButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
