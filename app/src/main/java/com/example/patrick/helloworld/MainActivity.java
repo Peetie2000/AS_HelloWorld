@@ -25,14 +25,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 clickCounter = clickCounter + clickValue;
                 tv_clicks.setText("Clicks: " + clickCounter);
+
+                if(clickCounter >= 10){
+                    b_buybutton.setEnabled(true);
+
+                }
             }
         });
+
+            b_buybutton.setEnabled(false);
+
+
 
         b_buybutton = (Button) findViewById(R.id.buybutton);
         b_buybutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 clickValue = clickValue + 2;
+                clickCounter = clickCounter - 10;
                 b_buybutton.setEnabled(false);
             }
         });
