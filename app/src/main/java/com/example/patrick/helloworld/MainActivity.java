@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         b_buyButton = (Button) findViewById(R.id.buyButton);
         pb_progressBar =(ProgressBar) findViewById(R.id.progressBar);
         pb_progressBar.setMax(100);
+        pb_progressBar.setProgress(0);
 
         b_buyButton.setEnabled(false);
 
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 clickValue = clickValue + 2;
                 clickCounter = clickCounter - 10;
                 tv_clicks.setText("Clicks: " + clickCounter);
+                pb_progressBar.setProgress(clickCounter);
                 b_buyButton.setText("Max upgrade");
                 b_buyButton.setEnabled(false);
             }
