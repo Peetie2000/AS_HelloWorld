@@ -13,7 +13,7 @@ import static com.example.patrick.helloworld.R.id.returnButton;
 public class Activity2 extends AppCompatActivity {
 
     Button b_returnButton, b_buyButton;
-    TextView tv_clickView;
+    TextView tv_textBalance, tv_textDPS;
     int clickCounter;
     int clickValue;
     String test;
@@ -25,7 +25,8 @@ public class Activity2 extends AppCompatActivity {
 
         b_returnButton = (Button) findViewById(returnButton);
         b_buyButton = (Button) findViewById(R.id.buyButton);
-        tv_clickView = (TextView) findViewById(R.id.clickView);
+        tv_textBalance = (TextView) findViewById(R.id.textBalance);
+        tv_textDPS = (TextView) findViewById(R.id.textDPS);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Intent intent = getIntent();
@@ -36,8 +37,8 @@ public class Activity2 extends AppCompatActivity {
         }
 
 
-        tv_clickView.setText("wow " + clickCounter + " " + clickValue);
-
+        tv_textBalance.setText("" + clickCounter + "");
+        tv_textDPS.setText("DPS: " + clickValue + "");
 
         b_buyButton.setEnabled(false);
     if (clickCounter >=10) {
@@ -51,6 +52,8 @@ public class Activity2 extends AppCompatActivity {
 
                 b_buyButton.setText("Max upgrade");
                 b_buyButton.setEnabled(false);
+                tv_textBalance.setText("" + clickCounter + "");
+                tv_textDPS.setText("DPS: " + clickValue + "");
             }
         });
     }
