@@ -10,11 +10,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int clickCounter = 0;
-    int clickValue= 1;
+    int clickCounter;
+    int clickValue;
+
     boolean item1 = false;
     TextView tv_clicks;
-    Button b_clickButton, b_buyButton, b_shopButton;
+    Button b_clickButton, b_shopButton;
     ProgressBar pb_progressBar;
 
 
@@ -26,13 +27,26 @@ public class MainActivity extends AppCompatActivity {
 
         tv_clicks = (TextView) findViewById(R.id.clicks);
         b_clickButton = (Button) findViewById(R.id.clickButton);
-        b_buyButton = (Button) findViewById(R.id.buyButton);
+
         b_shopButton = (Button) findViewById(R.id.shopButton);
         pb_progressBar =(ProgressBar) findViewById(R.id.progressBar);
-        pb_progressBar.setMax(100);
-        pb_progressBar.setProgress(0);
 
-        b_buyButton.setEnabled(false);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            Intent intent = getIntent();
+            String clickCounterText = (intent.getStringExtra("clickCounter"));
+            String clickValueText = (intent.getStringExtra("clickValue"));
+            clickCounter = Integer.parseInt(clickCounterText);
+            clickValue = Integer.parseInt(clickValueText);
+        }
+        else{
+            clickValue = 1;
+        }
+
+        pb_progressBar.setMax(100);
+
+        pb_progressBar.setProgress(clickCounter);
+        tv_clicks.setText("Clicks: " + clickCounter);
 
         b_clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,33 +58,40 @@ public class MainActivity extends AppCompatActivity {
                     pb_progressBar.setProgress(0);
                     //andere functie bij volle bar
                 }
-                if(clickCounter >= 10){
-                    if(!item1) {
-                        b_buyButton.setEnabled(true);
-                        item1 = true;
-
-                    }
-                }
+//                if(clickCounter >= 10){
+//                    if(!item1) {
+//                        b_buyButton.setEnabled(true);
+//                        item1 = true;
+//
+//                    }
+//                }
             }
         });
 
-        b_buyButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                clickValue = clickValue + 2;
-                clickCounter = clickCounter - 10;
-                tv_clicks.setText("Clicks: " + clickCounter);
-                pb_progressBar.setProgress(clickCounter);
-                b_buyButton.setText("Max upgrade");
-                b_buyButton.setEnabled(false);
-            }
-        });
+//        b_buyButton.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                clickValue = clickValue + 2;
+//                clickCounter = clickCounter - 10;
+//                tv_clicks.setText("Clicks: " + clickCounter);
+//                pb_progressBar.setProgress(clickCounter);
+//                b_buyButton.setText("Max upgrade");
+//                b_buyButton.setEnabled(false);
+//            }
+//        });
+
+
 
         b_shopButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Activity2.class));
+                Intent intent = new Intent(getApplicationContext(), Activity2.class);
+                intent.putExtra("clickCounter",Integer.toString(clickCounter));
+                intent.putExtra("clickValue", Integer.toString(clickValue));
+                startActivity(intent);
             }
         });
+
+
     }
 }
