@@ -1,5 +1,6 @@
 package com.example.patrick.helloworld;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     int clickValue= 1;
     boolean item1 = false;
     TextView tv_clicks;
-    Button b_clickButton, b_buyButton;
+    Button b_clickButton, b_buyButton, b_shopButton;
     ProgressBar pb_progressBar;
 
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         tv_clicks = (TextView) findViewById(R.id.clicks);
         b_clickButton = (Button) findViewById(R.id.clickButton);
         b_buyButton = (Button) findViewById(R.id.buyButton);
+        b_shopButton = (Button) findViewById(R.id.shopButton);
         pb_progressBar =(ProgressBar) findViewById(R.id.progressBar);
         pb_progressBar.setMax(100);
         pb_progressBar.setProgress(0);
@@ -61,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 pb_progressBar.setProgress(clickCounter);
                 b_buyButton.setText("Max upgrade");
                 b_buyButton.setEnabled(false);
+            }
+        });
+
+        b_shopButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Activity2.class));
             }
         });
     }

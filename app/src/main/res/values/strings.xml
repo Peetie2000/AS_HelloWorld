@@ -3,4 +3,5 @@
     <string name="clickButton">Click me!</string>
     <string name="buyButton">Buy now!</string>
     <string name="opteller">Clicks: 0</string>
+    <string name="title_activity_2">Activity2</string>
 </resources>
