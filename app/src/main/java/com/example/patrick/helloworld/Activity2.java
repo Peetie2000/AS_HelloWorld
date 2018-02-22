@@ -12,10 +12,11 @@ import static com.example.patrick.helloworld.R.id.returnButton;
 
 public class Activity2 extends AppCompatActivity {
 
-    Button b_returnButton, b_buyButton;
+    Button b_returnButton, b_buyButton1, b_buyButton2, b_buyButton3, b_buyButton4, b_buyButton5, b_buyButton6, b_buyButton7, b_buyButton8;
     TextView tv_textBalance, tv_textDPS;
     int clickCounter;
     int clickValue;
+    boolean balancecheck;
     String test;
 
     @Override
@@ -23,10 +24,6 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        b_returnButton = (Button) findViewById(returnButton);
-        b_buyButton = (Button) findViewById(R.id.buyButton);
-        tv_textBalance = (TextView) findViewById(R.id.textBalance);
-        tv_textDPS = (TextView) findViewById(R.id.textDPS);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Intent intent = getIntent();
@@ -36,27 +33,78 @@ public class Activity2 extends AppCompatActivity {
             clickValue = Integer.parseInt(clickValueText);
         }
 
+        b_returnButton = (Button) findViewById(returnButton);
+        tv_textBalance = (TextView) findViewById(R.id.textBalance);
+        tv_textDPS = (TextView) findViewById(R.id.textDPS);
+
+        b_buyButton1 = (Button) findViewById(R.id.buyButton1);
+        b_buyButton2 = (Button) findViewById(R.id.buyButton2);
+        b_buyButton3 = (Button) findViewById(R.id.buyButton3);
+        b_buyButton4 = (Button) findViewById(R.id.buyButton4);
+        b_buyButton5 = (Button) findViewById(R.id.buyButton5);
+        b_buyButton6 = (Button) findViewById(R.id.buyButton6);
+        b_buyButton7 = (Button) findViewById(R.id.buyButton7);
+        b_buyButton8 = (Button) findViewById(R.id.buyButton8);
+
+        b_buyButton1.setEnabled(false);
+        b_buyButton2.setEnabled(false);
+        b_buyButton3.setEnabled(false);
+        b_buyButton4.setEnabled(false);
+        b_buyButton5.setEnabled(false);
+        b_buyButton6.setEnabled(false);
+        b_buyButton7.setEnabled(false);
+        b_buyButton8.setEnabled(false);
 
         tv_textBalance.setText("" + clickCounter + "");
         tv_textDPS.setText("DPS: " + clickValue + "");
 
-        b_buyButton.setEnabled(false);
+
     if (clickCounter >=10) {
-        b_buyButton.setEnabled(true);
-        b_buyButton.setOnClickListener(new View.OnClickListener() {
+        b_buyButton1.setEnabled(true);
+        b_buyButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 clickValue = clickValue + 2;
                 clickCounter = clickCounter - 10;
-
-                b_buyButton.setText("Max upgrade");
-                b_buyButton.setEnabled(false);
+                b_buyButton1.setVisibility(View.GONE);
+                b_buyButton1.setEnabled(false);
                 tv_textBalance.setText("" + clickCounter + "");
                 tv_textDPS.setText("DPS: " + clickValue + "");
             }
         });
     }
+
+        if (clickCounter >=20) {
+            b_buyButton2.setEnabled(true);
+            b_buyButton2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickValue = clickValue + 3;
+                    clickCounter = clickCounter - 20;
+                    b_buyButton2.setVisibility(View.GONE);
+                    b_buyButton2.setEnabled(false);
+                    tv_textBalance.setText("" + clickCounter + "");
+                    tv_textDPS.setText("DPS: " + clickValue + "");
+                }
+            });
+        }
+
+        if (clickCounter >=30) {
+            b_buyButton3.setEnabled(true);
+            b_buyButton3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickValue = clickValue + 2;
+                    clickCounter = clickCounter - 10;
+                    b_buyButton3.setVisibility(View.GONE);
+                    b_buyButton3.setEnabled(false);
+                    tv_textBalance.setText("" + clickCounter + "");
+                    tv_textDPS.setText("DPS: " + clickValue + "");
+                }
+            });
+        }
+
+
         b_returnButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

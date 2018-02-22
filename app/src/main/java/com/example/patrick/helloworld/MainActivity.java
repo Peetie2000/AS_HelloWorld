@@ -58,29 +58,9 @@ public class MainActivity extends AppCompatActivity {
                     pb_progressBar.setProgress(0);
                     //andere functie bij volle bar
                 }
-//                if(clickCounter >= 10){
-//                    if(!item1) {
-//                        b_buyButton.setEnabled(true);
-//                        item1 = true;
-//
-//                    }
-//                }
+
             }
         });
-
-//        b_buyButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                clickValue = clickValue + 2;
-//                clickCounter = clickCounter - 10;
-//                tv_clicks.setText("Clicks: " + clickCounter);
-//                pb_progressBar.setProgress(clickCounter);
-//                b_buyButton.setText("Max upgrade");
-//                b_buyButton.setEnabled(false);
-//            }
-//        });
-
-
 
         b_shopButton.setOnClickListener(new View.OnClickListener(){
             @Override
