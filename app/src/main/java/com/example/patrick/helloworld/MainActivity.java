@@ -14,9 +14,11 @@ public class MainActivity extends AppCompatActivity {
     int clickValue;
 
     boolean item1 = false;
+    boolean buttonCheck1;
     TextView tv_clicks;
     Button b_clickButton, b_shopButton;
     ProgressBar pb_progressBar;
+
 
 
 
@@ -36,13 +38,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = getIntent();
             String clickCounterText = (intent.getStringExtra("clickCounter"));
             String clickValueText = (intent.getStringExtra("clickValue"));
+            buttonCheck1 = intent.getBooleanExtra("buttonCheck1", false);
             clickCounter = Integer.parseInt(clickCounterText);
             clickValue = Integer.parseInt(clickValueText);
         }
         else{
             clickValue = 1;
         }
-
+        if (buttonCheck1 == true){
+            b_clickButton.setText("wow");
+        }
         pb_progressBar.setMax(100);
 
         pb_progressBar.setProgress(clickCounter);
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Activity2.class);
                 intent.putExtra("clickCounter",Integer.toString(clickCounter));
                 intent.putExtra("clickValue", Integer.toString(clickValue));
+                intent.putExtra("buttonCheck1", buttonCheck1);
                 startActivity(intent);
             }
         });

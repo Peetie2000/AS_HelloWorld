@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import static com.example.patrick.helloworld.R.id.clickButton;
+import static com.example.patrick.helloworld.R.id.none;
 import static com.example.patrick.helloworld.R.id.returnButton;
 
 public class Activity2 extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class Activity2 extends AppCompatActivity {
     int clickCounter;
     int clickValue;
     boolean balancecheck;
+    boolean buttonCheck1;
     String test;
 
     @Override
@@ -31,6 +33,7 @@ public class Activity2 extends AppCompatActivity {
             String clickValueText = (intent.getStringExtra("clickValue"));
             clickCounter = Integer.parseInt(clickCounterText);
             clickValue = Integer.parseInt(clickValueText);
+            buttonCheck1 = intent.getBooleanExtra("buttonCheck1", true);
         }
 
         b_returnButton = (Button) findViewById(returnButton);
@@ -57,7 +60,9 @@ public class Activity2 extends AppCompatActivity {
 
         tv_textBalance.setText("" + clickCounter + "");
         tv_textDPS.setText("DPS: " + clickValue + "");
-
+    if (buttonCheck1 = false){
+        b_buyButton1.setVisibility(View.GONE);
+    }
 
     if (clickCounter >=10) {
         b_buyButton1.setEnabled(true);
@@ -70,6 +75,7 @@ public class Activity2 extends AppCompatActivity {
                 b_buyButton1.setEnabled(false);
                 tv_textBalance.setText("" + clickCounter + "");
                 tv_textDPS.setText("DPS: " + clickValue + "");
+                buttonCheck1 = false;
             }
         });
     }
@@ -111,6 +117,7 @@ public class Activity2 extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("clickCounter",Integer.toString(clickCounter));
                 intent.putExtra("clickValue", Integer.toString(clickValue));
+                intent.putExtra("buttonCheck1", buttonCheck1);
                 startActivity(intent);
 
             }
