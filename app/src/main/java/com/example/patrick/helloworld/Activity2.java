@@ -18,7 +18,8 @@ public class Activity2 extends AppCompatActivity {
     int clickCounter;
     int clickValue;
     boolean balancecheck;
-    boolean buttonCheck1;
+    int buttonCheck1;
+    int buttonCheck2;
     String test;
 
     @Override
@@ -26,14 +27,24 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
+        if (buttonCheck1 != 1){
+            buttonCheck1 = 0;
+        }
+        if (buttonCheck2 != 1){
+            buttonCheck2 = 0;
+        }
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Intent intent = getIntent();
             String clickCounterText = (intent.getStringExtra("clickCounter"));
             String clickValueText = (intent.getStringExtra("clickValue"));
+            String buttonCheckValue1 = (intent.getStringExtra("buttonCheck1"));
+            String buttonCheckValue2 = (intent.getStringExtra("buttonCheck2"));
             clickCounter = Integer.parseInt(clickCounterText);
             clickValue = Integer.parseInt(clickValueText);
-            buttonCheck1 = intent.getBooleanExtra("buttonCheck1", true);
+            buttonCheck1 = Integer.parseInt(buttonCheckValue1);
+            buttonCheck2 = Integer.parseInt(buttonCheckValue2);
         }
 
         b_returnButton = (Button) findViewById(returnButton);
@@ -53,16 +64,20 @@ public class Activity2 extends AppCompatActivity {
         b_buyButton2.setEnabled(false);
         b_buyButton3.setEnabled(false);
         b_buyButton4.setEnabled(false);
-        b_buyButton5.setEnabled(false);
-        b_buyButton6.setEnabled(false);
-        b_buyButton7.setEnabled(false);
-        b_buyButton8.setEnabled(false);
+        b_buyButton5.setVisibility(View.GONE);
+        b_buyButton6.setVisibility(View.GONE);
+        b_buyButton7.setVisibility(View.GONE);
+        b_buyButton8.setVisibility(View.GONE);
 
         tv_textBalance.setText("" + clickCounter + "");
         tv_textDPS.setText("DPS: " + clickValue + "");
-    if (buttonCheck1 = false){
+    if (buttonCheck1 == 1){
         b_buyButton1.setVisibility(View.GONE);
     }
+
+        if (buttonCheck2 == 1){
+            b_buyButton2.setVisibility(View.GONE);
+        }
 
     if (clickCounter >=10) {
         b_buyButton1.setEnabled(true);
@@ -75,7 +90,8 @@ public class Activity2 extends AppCompatActivity {
                 b_buyButton1.setEnabled(false);
                 tv_textBalance.setText("" + clickCounter + "");
                 tv_textDPS.setText("DPS: " + clickValue + "");
-                buttonCheck1 = false;
+                buttonCheck1 = 1;
+
             }
         });
     }
@@ -91,6 +107,7 @@ public class Activity2 extends AppCompatActivity {
                     b_buyButton2.setEnabled(false);
                     tv_textBalance.setText("" + clickCounter + "");
                     tv_textDPS.setText("DPS: " + clickValue + "");
+                    buttonCheck2 = 1;
                 }
             });
         }
@@ -117,7 +134,8 @@ public class Activity2 extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("clickCounter",Integer.toString(clickCounter));
                 intent.putExtra("clickValue", Integer.toString(clickValue));
-                intent.putExtra("buttonCheck1", buttonCheck1);
+                intent.putExtra("buttonCheck1", Integer.toString(buttonCheck1));
+                intent.putExtra("buttonCheck2", Integer.toString(buttonCheck2));
                 startActivity(intent);
 
             }

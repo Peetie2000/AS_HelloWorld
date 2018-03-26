@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.patrick.helloworld.Activity2">
+    tools:context="com.example.patrick.helloworld.Activity2"
+    android:background="@color/white">
+
 
     <Button
         android:id="@+id/returnButton"
@@ -14,6 +16,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:text="Return"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +35,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/black"
         android:text="Balance:"
         android:textAlignment="center"
         android:textSize="20dp"
@@ -49,7 +54,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="DPS:"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +71,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,51 +82,71 @@
 
         <Button
             android:id="@+id/buyButton1"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@color/colorPrimary"
+            android:text="Cost: 10  +2"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/buyButton2"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@color/colorPrimary"
+            android:text="Cost: 20 +3"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/buyButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:text="Button"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/buyButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:text="Button"
+            android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/buyButton5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+        android:id="@+id/buyButton5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:text="Button" />
 
         <Button
-            android:id="@+id/buyButton6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+        android:id="@+id/buyButton6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:text="Button" />
 
         <Button
-            android:id="@+id/buyButton7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+        android:id="@+id/buyButton7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:text="Button" />
 
         <Button
-            android:id="@+id/buyButton8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+        android:id="@+id/buyButton8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:text="Button" />
     </LinearLayout>
 
 

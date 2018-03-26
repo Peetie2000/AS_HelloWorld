@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
 
     int clickCounter;
     int clickValue;
-
+    int buttonCheck1;
+    int buttonCheck2;
     boolean item1 = false;
-    boolean buttonCheck1;
     TextView tv_clicks;
     Button b_clickButton, b_shopButton;
     ProgressBar pb_progressBar;
@@ -38,16 +38,18 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = getIntent();
             String clickCounterText = (intent.getStringExtra("clickCounter"));
             String clickValueText = (intent.getStringExtra("clickValue"));
-            buttonCheck1 = intent.getBooleanExtra("buttonCheck1", false);
+            String buttonCheckValue1 = (intent.getStringExtra("buttonCheck1"));
+            String buttonCheckValue2 = (intent.getStringExtra("buttonCheck2"));
             clickCounter = Integer.parseInt(clickCounterText);
             clickValue = Integer.parseInt(clickValueText);
+            buttonCheck1 = Integer.parseInt(buttonCheckValue1);
+            buttonCheck2 = Integer.parseInt(buttonCheckValue2);
         }
         else{
             clickValue = 1;
         }
-        if (buttonCheck1 == true){
-            b_clickButton.setText("wow");
-        }
+
+
         pb_progressBar.setMax(100);
 
         pb_progressBar.setProgress(clickCounter);
@@ -73,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Activity2.class);
                 intent.putExtra("clickCounter",Integer.toString(clickCounter));
                 intent.putExtra("clickValue", Integer.toString(clickValue));
-                intent.putExtra("buttonCheck1", buttonCheck1);
+                intent.putExtra("buttonCheck1", Integer.toString(buttonCheck1));
+                intent.putExtra("buttonCheck2", Integer.toString(buttonCheck2));
                 startActivity(intent);
             }
         });
