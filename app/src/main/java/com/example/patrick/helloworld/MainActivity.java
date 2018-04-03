@@ -1,6 +1,7 @@
 package com.example.patrick.helloworld;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_clicks;
     Button b_clickButton, b_shopButton;
     ProgressBar pb_progressBar;
+    MediaPlayer mp_knopgeluid, mp_100geluid;
 
 
 
@@ -26,12 +28,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mp_knopgeluid = (MediaPlayer) MediaPlayer.create(this, R.raw.biem);
+        mp_100geluid = (MediaPlayer) MediaPlayer.create(this, R.raw.biem2);
         tv_clicks = (TextView) findViewById(R.id.clicks);
         b_clickButton = (Button) findViewById(R.id.clickButton);
 
         b_shopButton = (Button) findViewById(R.id.shopButton);
         pb_progressBar =(ProgressBar) findViewById(R.id.progressBar);
+
+
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -65,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                     pb_progressBar.setProgress(0);
                     //andere functie bij volle bar
                 }
+                if(clickCounter == 100){
+                    mp_100geluid.start();
+                }
+                mp_knopgeluid.start();
 
             }
         });
