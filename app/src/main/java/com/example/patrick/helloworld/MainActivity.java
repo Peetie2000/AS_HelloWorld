@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     int clickValue;
     int buttonCheck1;
     int buttonCheck2;
+    int progressbarProgress;
+
     boolean item1 = false;
     TextView tv_clicks;
     Button b_clickButton, b_shopButton;
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         mp_100geluid = (MediaPlayer) MediaPlayer.create(this, R.raw.biem2);
         tv_clicks = (TextView) findViewById(R.id.clicks);
         b_clickButton = (Button) findViewById(R.id.clickButton);
-
         b_shopButton = (Button) findViewById(R.id.shopButton);
         pb_progressBar =(ProgressBar) findViewById(R.id.progressBar);
 
@@ -45,34 +46,45 @@ public class MainActivity extends AppCompatActivity {
             String clickValueText = (intent.getStringExtra("clickValue"));
             String buttonCheckValue1 = (intent.getStringExtra("buttonCheck1"));
             String buttonCheckValue2 = (intent.getStringExtra("buttonCheck2"));
+            String progressbarProgressValue = (intent.getStringExtra("progressbarProgress"));
             clickCounter = Integer.parseInt(clickCounterText);
             clickValue = Integer.parseInt(clickValueText);
             buttonCheck1 = Integer.parseInt(buttonCheckValue1);
             buttonCheck2 = Integer.parseInt(buttonCheckValue2);
+            progressbarProgress = Integer.parseInt(progressbarProgressValue);
         }
         else{
             clickValue = 1;
         }
 
-
         pb_progressBar.setMax(100);
 
-        pb_progressBar.setProgress(clickCounter);
+        pb_progressBar.setProgress(progressbarProgress);
+
         tv_clicks.setText("Clicks: " + clickCounter);
+
 
         b_clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 clickCounter = clickCounter + clickValue;
+                progressbarProgress = progressbarProgress + 1;
                 tv_clicks.setText("Clicks: " + clickCounter);
-                pb_progressBar.setProgress(clickCounter);
-                if(clickCounter >= 100){
-                    pb_progressBar.setProgress(0);
-                    //andere functie bij volle bar
-                }
-                if(clickCounter == 100){
+
+                pb_progressBar.setProgress(progressbarProgress);
+
+                if(progressbarProgress == 100){
+                    clickValue = clickValue + 1;
+                    progressbarProgress = 0;
+                    pb_progressBar.setProgress(progressbarProgress);
                     mp_100geluid.start();
                 }
+
+
+
+
+
                 mp_knopgeluid.start();
 
             }
@@ -86,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("clickValue", Integer.toString(clickValue));
                 intent.putExtra("buttonCheck1", Integer.toString(buttonCheck1));
                 intent.putExtra("buttonCheck2", Integer.toString(buttonCheck2));
+                intent.putExtra("progressbarProgress", Integer.toString(progressbarProgress));
                 startActivity(intent);
             }
         });
