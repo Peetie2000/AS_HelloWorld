@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     int clickValue;
     int buttonCheck1;
     int buttonCheck2;
+    int buttonCheck3;
+    int buttonCheck4;
     int progressbarProgress;
 
     boolean item1 = false;
@@ -46,11 +48,15 @@ public class MainActivity extends AppCompatActivity {
             String clickValueText = (intent.getStringExtra("clickValue"));
             String buttonCheckValue1 = (intent.getStringExtra("buttonCheck1"));
             String buttonCheckValue2 = (intent.getStringExtra("buttonCheck2"));
+            String buttonCheckValue3 = (intent.getStringExtra("buttonCheck3"));
+            String buttonCheckValue4 = (intent.getStringExtra("buttonCheck4"));
             String progressbarProgressValue = (intent.getStringExtra("progressbarProgress"));
             clickCounter = Integer.parseInt(clickCounterText);
             clickValue = Integer.parseInt(clickValueText);
             buttonCheck1 = Integer.parseInt(buttonCheckValue1);
             buttonCheck2 = Integer.parseInt(buttonCheckValue2);
+            buttonCheck3 = Integer.parseInt(buttonCheckValue3);
+            buttonCheck4 = Integer.parseInt(buttonCheckValue4);
             progressbarProgress = Integer.parseInt(progressbarProgressValue);
         }
         else{
@@ -98,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("clickValue", Integer.toString(clickValue));
                 intent.putExtra("buttonCheck1", Integer.toString(buttonCheck1));
                 intent.putExtra("buttonCheck2", Integer.toString(buttonCheck2));
+                intent.putExtra("buttonCheck3", Integer.toString(buttonCheck3));
+                intent.putExtra("buttonCheck4", Integer.toString(buttonCheck4));
                 intent.putExtra("progressbarProgress", Integer.toString(progressbarProgress));
                 startActivity(intent);
             }

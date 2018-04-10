@@ -102,51 +102,28 @@
             android:id="@+id/buyButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
             android:layout_marginTop="10dp"
-            android:text="Button"
+            android:background="@color/colorPrimary"
+            android:text="cost: 30 + 4"
             android:textColor="@color/white" />
 
         <Button
             android:id="@+id/buyButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
             android:layout_marginTop="10dp"
-            android:text="Button"
+            android:background="@color/colorPrimary"
+            android:text="cost: 40 + 5"
             android:textColor="@color/white" />
 
         <Button
-        android:id="@+id/buyButton5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="Button" />
-
-        <Button
-        android:id="@+id/buyButton6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="Button" />
-
-        <Button
-        android:id="@+id/buyButton7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="Button" />
-
-        <Button
-        android:id="@+id/buyButton8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="Button" />
+            android:id="@+id/mysteryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="mystery? Cost: 1000"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 
